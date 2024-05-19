@@ -45,7 +45,6 @@ int main(int argc, char* argv[])
 	seneca::FoodOrder recordedDeliveryOrders[6];
 	// Keep a count of how many orders recorded
 	size_t numDeliveries = 0;
-	size_t numDeliveries = 0;
 
 	seneca::FoodOrder currentOrder;
 
