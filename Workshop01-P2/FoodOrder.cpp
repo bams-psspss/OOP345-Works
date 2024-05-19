@@ -17,8 +17,7 @@ double g_taxrate = 0.0;
 double g_dailydiscount = 0.0;
 
 namespace seneca {
-	FoodOrder::FoodOrder() : m_price{ 0.0 }, m_daily{ false }, m_descFood{nullptr} {
-		m_name[0] = '\0';
+	FoodOrder::FoodOrder() :m_name{}, m_descFood{ nullptr }, m_price{ 0.0 }, m_daily{false} {
 	}
 
 	FoodOrder::FoodOrder(const FoodOrder& other) {
