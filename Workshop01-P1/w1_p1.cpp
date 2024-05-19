@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	//   3: third argument
 	//   ...
 	for (auto i = 0; i < argc; i++) {
-		std::cout << i + 1 << "  : " << argv[i] << std::endl;
+		std::cout << "  " << i + 1 << ": " << argv[i] << std::endl;
 	}
 
 	std::cout << "--------------------------\n\n";
@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
 	// Keep a record of the In House and Delivery orders separately
 	seneca::FoodOrder recordedDeliveryOrders[6];
 	// Keep a count of how many orders recorded
+	size_t numDeliveries = 0;
 	size_t numDeliveries = 0;
 
 	seneca::FoodOrder currentOrder;
