@@ -8,7 +8,7 @@ I declar that this submission is the result of my own work and I only copied the
 ***********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <cstring>;
+#include <cstring>
 #include "FoodOrder.h"
 
 using namespace std;

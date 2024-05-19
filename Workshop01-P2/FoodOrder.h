@@ -18,9 +18,9 @@ extern double g_dailydiscount;
 namespace seneca {
 	class FoodOrder {
 		char m_name[11]{};
-		char* m_descFood{};
+		char* m_descFood{nullptr};
 		double m_price{};
-		bool m_daily{};
+		bool m_daily{false};
 
 	public:
 		FoodOrder();
