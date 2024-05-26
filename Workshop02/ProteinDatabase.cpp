@@ -69,7 +69,7 @@ namespace seneca {
 
 			if (m_numProteins > 0) {
 				m_proteins = new string[m_numProteins];
-				for (auto i = 0; i < m_numProteins; i++) {
+				for (auto i = 0u; i < m_numProteins; i++) {
 					m_proteins[i] = other.m_proteins[i];
 				}
 			}
