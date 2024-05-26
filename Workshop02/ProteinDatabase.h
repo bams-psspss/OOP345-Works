@@ -13,8 +13,8 @@ I declar that this submission is the result of my own work and I only copied the
 
 namespace seneca {
 	class ProteinDatabase {
-		std::string* m_proteins;
-		size_t m_numProteins;
+		std::string* m_proteins{};
+		size_t m_numProteins{};
 
 	public:
 		ProteinDatabase();
@@ -28,7 +28,8 @@ namespace seneca {
 		~ProteinDatabase();
 
 		size_t size() const;
-		std::string operator[](size_t index);
+		//Add const here
+		const std::string operator[](size_t index) const;
 	};
 }
 
