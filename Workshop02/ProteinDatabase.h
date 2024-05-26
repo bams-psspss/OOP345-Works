@@ -28,7 +28,7 @@ namespace seneca {
 		~ProteinDatabase();
 
 		size_t size() const;
-		//Add const here
+		
 		const std::string operator[](size_t index) const;
 	};
 }
