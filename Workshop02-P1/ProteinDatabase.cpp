@@ -40,7 +40,7 @@ namespace seneca {
 				}
 				else{
 					if(index > 0 && index <= m_numProteins) {
-						m_proteins[index - 1] += theLine
+						m_proteins[index - 1] += theLine;
 					}
 				}
 			}
