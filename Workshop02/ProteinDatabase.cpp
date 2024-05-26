@@ -75,6 +75,7 @@ namespace seneca {
 			}
 			else {
 				m_proteins = nullptr;
+				m_numProteins = 0;
 			}
 		}
 
@@ -82,7 +83,6 @@ namespace seneca {
 	}
 
 	ProteinDatabase::ProteinDatabase(ProteinDatabase&& other) noexcept {
-		m_proteins = nullptr;
 		*this = move(other);
 	}
 
@@ -107,7 +107,7 @@ namespace seneca {
 	}
 
 
-	std::string ProteinDatabase::operator[](size_t index) {
+	const std::string ProteinDatabase::operator[](size_t index) const {
 		string result = "";
 		if (index < m_numProteins) {
 			result = m_proteins[index];
