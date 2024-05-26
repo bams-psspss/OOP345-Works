@@ -15,7 +15,6 @@ namespace seneca {
 		string theLine;
 		string currentProtein;
 		size_t index = 0;
-		bool sequence = false;
 
 
 		if (!file) {
@@ -27,21 +26,22 @@ namespace seneca {
 					m_numProteins++;
 				}
 			}
-			file.clear();
-			file.seekg(0);
 
 			m_proteins = new string[m_numProteins];
 
+			file.clear();
+			file.seekg(0);
+			
 			while (getline(file, theLine)) {
-				if (!theLine.empty() && theLine[0] == '>') {
-					if (sequence && !currentProtein.empty()) {
-						m_proteins[index++] = currentProtein;
-						currentProtein.clear();
+				if (theLine[0] == '>') {
+					if (index < m_numProteins) {
+						index++;
 					}
-					sequence = true;
 				}
-				else if (sequence) {
-					currentProtein += theLine;
+				else{
+					if(index > 0 && index <= m_numProteins) {
+						m_proteins[index - 1] += theLine
+					}
 				}
 			}
 
