@@ -16,7 +16,7 @@ namespace seneca {
 	ProteinDatabase::ProteinDatabase() :m_proteins{ nullptr }, m_numProteins{ 0 } {
 	}
 
-	//Not done
+	
 	ProteinDatabase::ProteinDatabase(const std::string& fname) :m_proteins{ nullptr }, m_numProteins{ 0 } {
 
 		ifstream file(fname);
