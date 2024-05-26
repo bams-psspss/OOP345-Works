@@ -89,11 +89,12 @@ namespace seneca {
 	ProteinDatabase& ProteinDatabase::operator=(ProteinDatabase&& other) noexcept {
 		if (this != &other) {
 			delete[] m_proteins;
-			m_numProteins = other.m_numProteins;
 
+			m_numProteins = other.m_numProteins;
 			m_proteins = other.m_proteins;
 
 			other.m_proteins = nullptr;
+			other.m_numProteins = 0;
 		}
 		return *this;
 	}
@@ -108,10 +109,9 @@ namespace seneca {
 
 
 	const std::string ProteinDatabase::operator[](size_t index) const {
-		string result = "";
 		if (index < m_numProteins) {
-			result = m_proteins[index];
+			return m_proteins[index];
 		}
-		return result;
+		return "";
 	}
 }
