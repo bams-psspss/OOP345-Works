@@ -148,8 +148,7 @@ namespace seneca
 		return os;
 	}
 
-//Don't know how to do the specialize in the prin() or book and capacity 72??
-	template <>
+]	template <>
 	std::ostream& Collection<Book, 10>::print(std::ostream& os) const {
 		os << "| ---------------------------------------------------------------------------|\n";
 
