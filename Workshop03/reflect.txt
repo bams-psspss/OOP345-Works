@@ -1,0 +1,14 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		02 June 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declar that this submission is the result of my own work and I only copied the code 
+that my professor provided to complete my workshops and assignments. 
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+  In this workshop, I learn how to use string function and how it help us in coding. I learn that template could be anything and it is very convinient
+if we want to use the same function, but different variables. I found it very annoying to include the template <typename T> everytime I create a function.
+I know that we could just write the function body inside the class, but it is not really my style to that, so I just write all of the function with the template thing.
