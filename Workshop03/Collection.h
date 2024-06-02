@@ -150,7 +150,7 @@ namespace seneca
 				+ std::to_string(m_items[i].getNumPages()) << " | ";
 
 			os << std::setw(15) << std::left << "(" + std::to_string(m_items[i].avgPage()) + ")";
-			os << std::setw(3) << std::right << "|";
+			os << std::setw(2) << std::right << "|";
 
 			if (i <= m_size - 1) {
 				os << "\n";
@@ -172,7 +172,7 @@ namespace seneca
 				+ std::to_string(m_items[i].getNumPages()) << " | ";
 
 			os << std::setw(15) << std::left << "(" + std::to_string(m_items[i].avgPage()) + ")";
-			os << std::setw(3) << std::right << "|";
+			os << std::setw(2) << std::right << "|";
 
 			if (i <= m_size - 1) {
 				os << "\n";
