@@ -145,7 +145,7 @@ namespace seneca
 
 		for (unsigned i = 0; i < m_size; ++i) {
 			os << "|";
-			os << std::setw(56) << std::right << m_items[i].getTitle() + ","
+			os << std::setw(57) << std::right << m_items[i].getTitle() + ","
 				+ std::to_string(m_items[i].getNumChapters()) + ","
 				+ std::to_string(m_items[i].getNumPages()) << " | ";
 
