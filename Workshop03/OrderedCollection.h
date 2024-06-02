@@ -34,6 +34,8 @@ namespace seneca
 
             // Increment the size of the collection
             this->incrSize();
+            this->setSmallestItem(item);
+            this->setLargestItem(item);
         }
 
         return answer; // Return true if insertion is successful, false otherwise
