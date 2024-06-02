@@ -26,29 +26,25 @@ namespace seneca
         unsigned index = 0;
 
         if (this->size() >= 72) {
-            answer = false; // Collection is full, insertion failed
+            answer = false; 
         }
         else {
-            // Find the appropriate index to insert the new item
             while (index < this->size() && this->operator[](index) < item) {
                 ++index;
             }
 
-            // Make space for the new item by shifting elements to the right
             for (unsigned i = this->size(); i > index; --i) {
                 this->operator[](i) = this->operator[](i - 1);
             }
 
-            // Insert the new item at the appropriate index
             this->operator[](index) = item;
 
-            // Increment the size of the collection
             this->incrSize();
             this->setSmallestItem(item);
             this->setLargestItem(item);
         }
 
-        return answer; // Return true if insertion is successful, false otherwise
+        return answer;
     }
 
 }
