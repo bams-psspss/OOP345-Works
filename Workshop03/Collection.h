@@ -148,7 +148,7 @@ namespace seneca
 		return os;
 	}
 
-]	template <>
+	template <>
 	std::ostream& Collection<Book, 10>::print(std::ostream& os) const {
 		os << "| ---------------------------------------------------------------------------|\n";
 
