@@ -104,7 +104,7 @@ namespace seneca {
 			<< std::setw(10) << std::right << res.m_reserveId << ": "
 			<< std::setw(20) << std::right << res.m_nameReserve << " "
 
-			<< std::setw(25) << std::left << (" <" + res.m_email + ">") << " "
+			<< std::setw(25) << std::left << (" <" + res.m_email + ">")
 			<< mealType << " on day "
 			<< res.m_day << " @ " << res.m_hour << ":00"
 			<< " for " << res.m_partyNum
