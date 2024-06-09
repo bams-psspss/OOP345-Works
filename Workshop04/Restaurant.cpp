@@ -14,7 +14,7 @@ This submitted piece of work has not been shared with any other student or 3rd p
 using namespace std;
 
 namespace seneca {
-	Restaurant::Restaurant() : m_reservations{ nullptr }, m_reserveNum{0}
+	Restaurant::Restaurant() : m_reserveNum{0},m_reservations{ nullptr } 
 	{
 	}
 
