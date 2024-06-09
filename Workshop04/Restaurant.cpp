@@ -32,7 +32,7 @@ namespace seneca {
 	{
 		m_reservations = new Reservation*[m_reserveNum];
 
-		for (auto i = 0; i < m_reserveNum; i++) {
+		for (size_t i = 0; i < m_reserveNum; i++) {
 			m_reservations[i] = new Reservation(*other.m_reservations[i]);
 		}
 

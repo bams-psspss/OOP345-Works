@@ -18,8 +18,8 @@ This submitted piece of work has not been shared with any other student or 3rd p
 namespace seneca {
 	class Restaurant
 	{
-		size_t m_reserveNum{};
-		Reservation** m_reservations{};
+		size_t m_reserveNum;
+		Reservation** m_reservations;
 
 	public:
 		//Rule of FIVE
