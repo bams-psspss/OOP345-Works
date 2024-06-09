@@ -104,7 +104,7 @@ namespace seneca {
 			<< "--------------------------" << std::endl;
 		if (res.size() == 0)
 		{
-			os << "This restaurantis empty!" << std::endl;
+			os << "This restaurant is empty!" << std::endl;
 		}
 		else {
 			for (size_t i = 0; i < res.m_reserveNum; i++)
