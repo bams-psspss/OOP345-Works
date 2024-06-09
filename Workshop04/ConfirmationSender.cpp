@@ -4,7 +4,7 @@ Date:		08 June 2024
 StudentID:	130618234
 Email:		psaravaneeyawong@myseneca.ca
 
-I declar that this submission is the result of my own work and I only copied the code
+I declare that this submission is the result of my own work and I only copied the code
 that my professor provided to complete my workshops and assignments.
 This submitted piece of work has not been shared with any other student or 3rd party content provider.
 ***********************************************************************/
@@ -62,7 +62,7 @@ namespace seneca {
             }
         }
 
-        const Reservation** temp = new const Reservation * [m_cnt + 1];
+        const Reservation** temp = new const Reservation* [m_cnt + 1];
         for (size_t i = 0; i < m_cnt; ++i) {
             temp[i] = m_reservations[i];
         }
@@ -89,7 +89,7 @@ namespace seneca {
             return *this;  
         }
 
-        const Reservation** temp = new const Reservation * [m_cnt - 1];
+        const Reservation** temp = new const Reservation* [m_cnt - 1];
         for (size_t i = 0, j = 0; i < m_cnt; ++i) {
             if (i != index) {
                 temp[j++] = m_reservations[i];

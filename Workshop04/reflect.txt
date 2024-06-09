@@ -1,0 +1,17 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		08 June 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code
+that my professor provided to complete my workshops and assignments.
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+	In this workshop, I learn how to use .find_first_not_of(); find_last_not_of(); I discover this 2 function when I was making a research how to trim the leading and trailing edge of the data. These two function find the first char if there is a blank space or not. If it does match it will return the index of that char, but if not it will return npos, which mean no position. 
+	Next, the function .substr; This function receive 2 argument .substr(int x, int y), which x means the start of the string you want, and y is how many position you want the character.
+	Continually, function .find(char x, int y); this function find the match char x in the string which start from the y position. This function will return the number of the index, if not found will return npos.
+	Lastly, function .stoi(string sth); This function covert the string that have integral to the integer type and can be store in the integer type.
+	
+	The difficulty of this workshop is that to formatting the display in the console. I am not that confident to use setw without asking for help. But today I did research and have a review, so I think I understand more about it.
