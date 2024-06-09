@@ -86,7 +86,11 @@ namespace seneca {
 
 	Restaurant::~Restaurant()
 	{
+		for (size_t i = 0; i < m_reserveNum; ++i) {
+			delete m_reservations[i];
+		}
 		delete[] m_reservations;
+
 	}
 
 	size_t Restaurant::size() const
