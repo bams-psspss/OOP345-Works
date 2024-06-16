@@ -26,9 +26,9 @@ namespace seneca {
     }
 
     std::ostream& operator<<(std::ostream& os, const Movie& movie) {
-        os << std::setw(40) << std::left << movie.m_title << " | "
+        os << std::setw(40) << std::right << movie.m_title << " | "
             << std::setw(4) << movie.m_year << " | "
-            << movie.m_desc;
+            << movie.m_desc << endl;
         return os;
     }
 
