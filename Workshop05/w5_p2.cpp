@@ -206,27 +206,23 @@ int main(int argc, char** argv)
 		try {
 			seneca::SpellChecker sp(argv[i]);
 
-			// Process books in the library
 			for (size_t j = 0; j < library.size(); ++j) {
 				try {
 					library[j].fixSpelling(sp);
 				}
 				catch (const char* e) {
 					std::cout << "** EXCEPTION: " << e << std::endl;
-					// Handle the exception as needed
 				}
 			}
 			std::cout << "Spellchecker Statistics" << std::endl;
 			sp.showStatistics(std::cout);
 
-			// Process movies in the collection
 			for (size_t j = 0; j < theCollection.size(); ++j) {
 				try {
 					theCollection[j].fixSpelling(sp);
 				}
 				catch (const char* e) {
 					std::cout << "** EXCEPTION: " << e << std::endl;
-					// Handle the exception as needed
 				}
 			}
 			std::cout << "Spellchecker Statistics" << std::endl;
@@ -234,7 +230,6 @@ int main(int argc, char** argv)
 		}
 		catch (const char* e) {
 			std::cout << "** EXCEPTION: " << e << std::endl;
-			// Handle the exception when creating SpellChecker
 		}
 	}
 

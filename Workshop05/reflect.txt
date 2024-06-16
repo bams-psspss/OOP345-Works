@@ -1,0 +1,19 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		16 June 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code 
+that my professor provided to complete my workshops and assignments. 
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+	In this workshop, I learn more about the lambda expression when we want to have like a little function 
+that we want to use it directly, we just create a lambda template above of what we were going to use.
+	For the class Movie and Book, I would really use the inheritance. I will make a base class for both 
+of them aand maybe name them like Base class, or another way, I could make a book as a base class 
+and inherit in the Movie class. 
+	In the main class there is constructor, and I don't think it need 
+to be there. Because in my code I design it to already have the constructor, even if I don't have 
+it, the compiler will automatically have make one by itslef, so I think it is uneccessary to have it there.
