@@ -130,6 +130,7 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="SpellChecker.cpp" />
+    <ClCompile Include="w5_p1.cpp" />
     <ClCompile Include="w5_p2.cpp" />
   </ItemGroup>
   <ItemGroup>

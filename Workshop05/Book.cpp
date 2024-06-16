@@ -69,8 +69,8 @@ namespace seneca {
 	}
 
 	std::ostream& operator<<(std::ostream& os, const Book& book) {
-		os << std::setw(20) << std::left << book.m_author << " | "
-			<< std::setw(22) << std::left << book.m_title << " | "
+		os << " " << std::setw(20) << std::left << book.m_author << " | "
+			<< std::setw(22) << std::right << book.m_title << " | "
 			<< std::setw(5) << std::left << book.m_country << " | "
 			<< std::setw(4) << std::right << book.m_yearPub << " | "
 			<< std::setw(6) << std::fixed << std::setprecision(2) << book.m_price << " | "

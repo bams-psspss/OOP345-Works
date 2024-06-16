@@ -122,6 +122,7 @@ int main(int argc, char** argv)
 	//         using the lambda defined above.
 	for (size_t i = 0; i < library.size(); ++i) {
 		fixBookPrice(library[i]);
+		cout << '\n';
 	}
 
 
