@@ -203,28 +203,42 @@ int main(int argc, char** argv)
 	std::cout << "-----------------------------------------\n";
 	for (auto i = 3; i < argc; ++i)
 	{
-			// TODO: The following statement can generate generate an exception
-			//         write code to handle the exception
-			//       If an exception occurs print a message in the following format
-			//** EXCEPTION: ERROR_MESSAGE<endl>
-			//         where ERROR_MESSAGE is extracted from the exception object.
-		for (auto i = 3; i < argc; ++i)
-		{
-			try {
-				seneca::SpellChecker sp(argv[i]);
-				for (auto j = 0u; j < library.size(); ++j)
-					library[j].fixSpelling(sp);
-				sp.showStatistics(std::cout);
+		try {
+			seneca::SpellChecker sp(argv[i]);
 
-				for (auto j = 0u; j < theCollection.size(); ++j)
+			// Process books in the library
+			for (size_t j = 0; j < library.size(); ++j) {
+				try {
+					library[j].fixSpelling(sp);
+				}
+				catch (const char* e) {
+					std::cout << "** EXCEPTION: " << e << std::endl;
+					// Handle the exception as needed
+				}
+			}
+			std::cout << "Spellchecker Statistics" << std::endl;
+			sp.showStatistics(std::cout);
+
+			// Process movies in the collection
+			for (size_t j = 0; j < theCollection.size(); ++j) {
+				try {
 					theCollection[j].fixSpelling(sp);
-				sp.showStatistics(std::cout);
+				}
+				catch (const char* e) {
+					std::cout << "** EXCEPTION: " << e << std::endl;
+					// Handle the exception as needed
+				}
 			}
-			catch (const char* e) {
-				std::cout << "** EXCEPTION: " << e << std::endl;
-			}
+			std::cout << "Spellchecker Statistics" << std::endl;
+			sp.showStatistics(std::cout);
+		}
+		catch (const char* e) {
+			std::cout << "** EXCEPTION: " << e << std::endl;
+			// Handle the exception when creating SpellChecker
 		}
 	}
+
+
 	if (argc < 3) {
 		std::cout << "** Spellchecker is empty\n";
 		std::cout << "-----------------------------------------\n";
