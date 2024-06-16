@@ -74,7 +74,7 @@ namespace seneca {
 			<< std::setw(5) << std::left << book.m_country << " | "
 			<< std::setw(4) << std::right << book.m_yearPub << " | "
 			<< std::setw(6) << std::fixed << std::setprecision(2) << book.m_price << " | "
-			<< book.m_desc;
+			<< book.m_desc << endl;
 		return os;
 	}
 }
