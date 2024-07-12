@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 
 namespace seneca {
 	enum class BakedType {
@@ -25,12 +26,22 @@ namespace seneca {
 	public:
 		Bakery(const std::string& fileName);
 
+		//Trim the whitespaces
 		std::string trim(std::string theString);
 
 		void showGoods(std::ostream& os) const;
 
-		void sortBakery(std::string& theField);
+		//Not done yet
+		void sortBakery(std::string theField);
 
+		
+		std::vector<BakedGood> combine(const Bakery& theOther);
+
+		//Check instock items
+		bool inStock(const std::string& theDesc, const BakedType& theType) const;
+
+		//Return out of stock items
+		std::list<BakedGood> outOfStock(const BakedType& theType) const;
 
 	};
 }

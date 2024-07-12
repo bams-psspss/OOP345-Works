@@ -28,8 +28,6 @@ int main(int argc, char *argv[])
   bakery.showGoods(std::cout);
   ::printstars(std::cout, 64);
 
-  //mine
-  bakery.sortBakery("Description");
 
   return cout;
 }

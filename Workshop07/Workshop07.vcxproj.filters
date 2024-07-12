@@ -26,7 +26,7 @@
     <ClCompile Include="Bakery.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="w7_p1.cpp">
+    <ClCompile Include="w7_p2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

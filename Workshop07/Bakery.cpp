@@ -62,9 +62,8 @@ namespace seneca {
 
 	void Bakery::showGoods(std::ostream& os) const
 	{
-		static int stock = 0;
-		static double price = 0;
-		static double totalPrice = 0.0;
+		 int stock = 0;
+		 double price = 0;
 
 		std::for_each(bakedGood.begin(), bakedGood.end(),
 			[&os](const BakedGood& b) {
@@ -72,7 +71,7 @@ namespace seneca {
 			}
 		);
 
-		std::for_each(bakedGood.begin(), bakedGood.end(), [](const BakedGood& b) {
+		std::for_each(bakedGood.begin(), bakedGood.end(), [&stock, &price](const BakedGood& b) {
 			stock += b.stock;
 			price += b.price;
 			}
@@ -81,35 +80,111 @@ namespace seneca {
 		os << "Total Stock: " << stock << '\n';
 		os << "Total Price: " << price << '\n';
 	}
-	void Bakery::sortBakery(std::string& theField)
+
+	void Bakery::sortBakery(std::string theField)
 	{
-		if (theField == "Description") {
-			//Sort Bakery part
-			std::sort(bakedGood.begin(), bakedGood.end(),std::less<std::string>());
-			
+		auto func = [theField](const BakedGood& a, const BakedGood& b) {
+			bool ret{ false };
+			if (theField == "Description") {
+				ret = a.desc < b.desc;
+			}
+			else if (theField == "Shelf") {
+				ret = a.shelfLife < b.shelfLife;
+			}
+			else if (theField == "Stock") {
+				ret = a.stock < b.stock;
+			}
+			else if (theField == "Price") {
+				ret = a.price < b.price;
+			}
+			return ret;
+		};
 
-			//bool myfunction(int i, int j) { return (i < j); }
-
-
-		}
-		else if (theField == "Shelf") {
-
-		}
-		else  if (theField == "Stock") {
-			
-		}
-		else {
-
-		}
+		std::sort(bakedGood.begin(), bakedGood.end(), func);
 	}
+
+	//Note Done
+	//void Bakery::sortBakery(std::string theField)
+	//{
+	//	if (theField == "Description") {
+	//		std::sort(bakedGood.begin(), bakedGood.end(), 
+	//			[](const BakedGood& a, const BakedGood& b) {
+	//			return a.desc < b.desc;
+	//			});
+
+	//	}
+
+	//	//It is sorted as the shelflife but the order is not the same as sample output.txt
+	//	else if (theField == "Shelf") {
+	//		std::sort(bakedGood.begin(), bakedGood.end(),
+	//			[](const BakedGood& a, const BakedGood& b) {
+	//				return a.shelfLife < b.shelfLife;
+	//			});
+	//	}
+	//	else  if (theField == "Stock") {
+	//		std::sort(bakedGood.begin(), bakedGood.end(),
+	//			[](const BakedGood& a, const BakedGood& b) {
+	//				return a.stock < b.stock;
+	//			});
+	//	}
+	//	else if(theField == "Price") {
+	//		std::sort(bakedGood.begin(), bakedGood.end(),
+	//			[](const BakedGood& a, const BakedGood& b) {
+	//				return a.price < b.price;
+	//			});
+	//	}
+	//	else {
+	//		//Nothing Happen!
+	//	}
+	//}
+	
+
+	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	{
+		std::vector<BakedGood> combined = bakedGood;
+		combined.insert(combined.end(), theOther.bakedGood.begin(), theOther.bakedGood.end());
+
+		std::sort(combined.begin(), combined.end(),
+			[](const BakedGood& a, const BakedGood& b) {
+				return a.price < b.price;
+			});
+		return combined;
+	}
+
+
+	bool Bakery::inStock(const std::string& theDesc, const BakedType& theType) const
+	{
+		return std::any_of(bakedGood.begin(), bakedGood.end(),
+			[theDesc, theType](const BakedGood& b) {
+				return b.desc == theDesc && b.type == theType && b.stock > 0;
+			});
+	}
+
+	std::list<BakedGood> Bakery::outOfStock(const BakedType& theType) const {
+		std::list<BakedGood> noStock;
+		std::copy_if(bakedGood.begin(), bakedGood.end(), std::back_inserter(noStock),
+			[theType](const BakedGood& b) {
+				return (b.type == theType && b.stock == 0);
+			});
+
+		noStock.sort([](const BakedGood& a, const BakedGood& b) {
+			return a.price < b.price;
+			});
+
+		return noStock;
+	}
+
+	
+
+
 }
 
 //Edit the format!!!!
 std::ostream& operator<<(std::ostream& out, const seneca::BakedGood& b) {
 	out << "* " << std::left << std::setw(10) << (b.type == seneca::BakedType::BREAD ? "Bread" : "Pastry");
 	out << " * " << std::left << std::setw(20) << b.desc;
-	out << " * " << std::right << std::setw(5) << b.shelfLife;
-	out << " * " << std::right << std::setw(5) << b.stock;
+	out << " * " << b.shelfLife << std::right << std::setw(5);
+	out << " * " << b.stock << std::right << std::setw(5) ;
 	out << " * " << std::fixed << std::setprecision(2) << std::setw(8) << b.price;
 	out << " *";
 	return out;
