@@ -81,7 +81,7 @@ namespace seneca {
 		os << "Total Price: " << price << '\n';
 	}
 
-	void Bakery::sortBakery(std::string theField)
+	/*void Bakery::sortBakery(std::string theField)
 	{
 		auto func = [theField](const BakedGood& a, const BakedGood& b) {
 			bool ret{ false };
@@ -101,42 +101,42 @@ namespace seneca {
 		};
 
 		std::sort(bakedGood.begin(), bakedGood.end(), func);
-	}
+	}*/
 
 	//Note Done
-	//void Bakery::sortBakery(std::string theField)
-	//{
-	//	if (theField == "Description") {
-	//		std::sort(bakedGood.begin(), bakedGood.end(), 
-	//			[](const BakedGood& a, const BakedGood& b) {
-	//			return a.desc < b.desc;
-	//			});
+	void Bakery::sortBakery(std::string theField)
+	{
+		if (theField == "Description") {
+			std::sort(bakedGood.begin(), bakedGood.end(), 
+				[](const BakedGood& a, const BakedGood& b) {
+				return a.desc < b.desc;
+				});
 
-	//	}
+		}
 
-	//	//It is sorted as the shelflife but the order is not the same as sample output.txt
-	//	else if (theField == "Shelf") {
-	//		std::sort(bakedGood.begin(), bakedGood.end(),
-	//			[](const BakedGood& a, const BakedGood& b) {
-	//				return a.shelfLife < b.shelfLife;
-	//			});
-	//	}
-	//	else  if (theField == "Stock") {
-	//		std::sort(bakedGood.begin(), bakedGood.end(),
-	//			[](const BakedGood& a, const BakedGood& b) {
-	//				return a.stock < b.stock;
-	//			});
-	//	}
-	//	else if(theField == "Price") {
-	//		std::sort(bakedGood.begin(), bakedGood.end(),
-	//			[](const BakedGood& a, const BakedGood& b) {
-	//				return a.price < b.price;
-	//			});
-	//	}
-	//	else {
-	//		//Nothing Happen!
-	//	}
-	//}
+		//It is sorted as the shelflife but the order is not the same as sample output.txt
+		else if (theField == "Shelf") {
+			std::sort(bakedGood.begin(), bakedGood.end(),
+				[](const BakedGood& a, const BakedGood& b) {
+					return a.shelfLife < b.shelfLife;
+			});
+		}
+		else  if (theField == "Stock") {
+			std::sort(bakedGood.begin(), bakedGood.end(),
+				[](const BakedGood& a, const BakedGood& b) {
+					return a.stock < b.stock;
+				});
+				}
+		else if(theField == "Price") {
+			std::sort(bakedGood.begin(), bakedGood.end(),
+				[](const BakedGood& a, const BakedGood& b) {
+					return a.price < b.price;
+				});
+		}
+		else {
+			//Nothing Happen!
+		}
+	}
 	
 
 	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
