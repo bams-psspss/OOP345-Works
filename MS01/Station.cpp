@@ -47,7 +47,7 @@ namespace seneca{
 
 	size_t Station::getNextSerialNumber()
 	{
-		return m_serialNum;
+		return m_serialNum++;
 	}
 
 	size_t Station::getQuantity() const
