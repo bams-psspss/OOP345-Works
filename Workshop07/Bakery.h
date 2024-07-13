@@ -32,7 +32,7 @@ namespace seneca {
 		void showGoods(std::ostream& os) const;
 
 		//Not done yet
-		void sortBakery(std::string theField);
+		void sortBakery(const std::string theField);
 
 		
 		std::vector<BakedGood> combine(const Bakery& theOther);
