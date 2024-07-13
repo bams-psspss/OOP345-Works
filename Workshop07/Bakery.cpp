@@ -165,7 +165,8 @@ std::ostream& operator<<(std::ostream& out, const seneca::BakedGood& b) {
 		<< " * " << std::left << std::setw(20) << b.desc
 		<< " * " << std::left << std::setw(5) << b.shelfLife
 		<< " * " << std::left << std::setw(5) << b.stock
-		<< " * " << std::fixed << std::setprecision(2) << std::right << std::setw(8) << b.price
-		<< " *";
+		<< " * " << std::fixed << std::setprecision(2)
+		<< std::right << std::setw(8) << b.price
+		<< " * ";
 	return out;
 }
