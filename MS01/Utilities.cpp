@@ -24,7 +24,7 @@ namespace seneca {
 	std::string Utilities::extractToken(const std::string& str, size_t& next_pos, bool& more)
 	{
 		std::string temp{};
-		int len;
+		size_t len;
 
 		if (next_pos >= str.length()) {
 			more = false;
