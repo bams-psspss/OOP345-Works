@@ -87,7 +87,7 @@ namespace seneca{
 			<< m_serialNum << " |";
 
 		if (full) {
-			os << std::setw(4) << std::setfill(' ') << m_quantity << " | " << m_desc;
+			os << std::setw(5) << std::setfill(' ') << m_quantity << " | " << m_desc;
 		}
 
 		os << " \n";
