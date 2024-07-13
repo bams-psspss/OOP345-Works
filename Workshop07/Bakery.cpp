@@ -46,6 +46,10 @@ namespace seneca {
 
 		}
 	}
+
+
+
+
 	std::string Bakery::trim(std::string theStr)
 	{
 		//Return npos if first position is NOT spacebar
@@ -103,8 +107,8 @@ namespace seneca {
 		std::sort(bakedGood.begin(), bakedGood.end(), func);
 
 	}
-
-	/*std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	/*
+	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
 	{
 		std::vector<BakedGood> ret(bakedGood.size() + theOther.bakedGood.size());
 		sortBakery("Price");
@@ -118,7 +122,23 @@ namespace seneca {
 			});
 
 		return ret;
-	}*/
+	}
+	*/
+	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	{
+		std::vector<BakedGood> ret(bakedGood.size() + theOther.bakedGood.size());
+		sortBakery("Price");
+		Bakery copy = theOther;
+		copy.sortBakery("Price");
+		std::merge(theOther.bakedGood.begin(), theOther.bakedGood.end(),
+			bakedGood.begin(), bakedGood.end(),
+			ret.begin(),
+			[](const BakedGood& a, const BakedGood& b) {
+				return a.price < b.price;
+			});
+
+		return ret;
+	}
 
 	//Note Done
 	/*void Bakery::sortBakery(std::string theField)
@@ -159,7 +179,7 @@ namespace seneca {
 
 
 
-	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	/**std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
 	{
 		std::vector<BakedGood> combined = bakedGood;
 		combined.insert(combined.end(), theOther.bakedGood.begin(), theOther.bakedGood.end());
@@ -169,7 +189,7 @@ namespace seneca {
 				return a.price < b.price;
 			});
 		return combined;
-	}
+	}*/
 
 
 
