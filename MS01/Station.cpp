@@ -90,7 +90,7 @@ namespace seneca{
 			os << m_quantity << " | " << m_desc;
 		}
 
-		os << " \n";
+		os << " " << '\0' << "\n";
 	}
 
 }
