@@ -84,13 +84,13 @@ namespace seneca{
 		os << std::setw(3) << std::setfill('0') << m_id << std::setfill(' ')
 			<< " | " << std::setw(m_widthField) << std::left << m_name
 			<< " | " << std::setw(6) << std::setfill('0') << std::right 
-			<< m_serialNum << " |";
+			<< m_serialNum << " | ";
 
 		if (full) {
 			os << std::setw(5) << std::setfill(' ') << m_quantity << " | " << std::left      << m_desc;
 		}
 
-		os << " \n";
+		os << "\n";
 	}
 
 }
