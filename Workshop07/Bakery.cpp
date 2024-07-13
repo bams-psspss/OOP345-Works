@@ -86,16 +86,16 @@ namespace seneca {
 		auto func = [theField](const BakedGood& a, const BakedGood& b) {
 			bool ret{ false };
 			if (theField == "Description") {
-				ret = a.desc > b.desc;
+				ret = a.desc < b.desc;
 			}
 			else if (theField == "Shelf") {
-				ret = a.shelfLife > b.shelfLife;
+				ret = a.shelfLife < b.shelfLife;
 			}
 			else if (theField == "Stock") {
-				ret = a.stock > b.stock;
+				ret = a.stock < b.stock;
 			}
 			else if (theField == "Price") {
-				ret = a.price > b.price;
+				ret = a.price < b.price;
 			}
 			return ret;
 		};
@@ -104,7 +104,7 @@ namespace seneca {
 
 	}
 
-	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	/*std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
 	{
 		std::vector<BakedGood> ret(bakedGood.size() + theOther.bakedGood.size());
 		sortBakery("Price");
@@ -118,7 +118,7 @@ namespace seneca {
 			});
 
 		return ret;
-	}
+	}*/
 
 	//Note Done
 	/*void Bakery::sortBakery(std::string theField)
@@ -159,7 +159,7 @@ namespace seneca {
 
 
 
-	/*std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
+	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
 	{
 		std::vector<BakedGood> combined = bakedGood;
 		combined.insert(combined.end(), theOther.bakedGood.begin(), theOther.bakedGood.end());
@@ -169,7 +169,7 @@ namespace seneca {
 				return a.price < b.price;
 			});
 		return combined;
-	}*/
+	}
 
 
 
