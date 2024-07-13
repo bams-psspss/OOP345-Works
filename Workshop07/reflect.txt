@@ -1,0 +1,25 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		13 July 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code 
+that my professor provided to complete my workshops and assignments. 
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+List all the STL used in this Workshop:
+iostream -> this STL used for the input and output
+string -> for the variable member to store all the data from the bakery.txt file
+iomanip -> this library is use to set the format for the output, such as setw and the precision for the price
+algorithm -> this function use to manage the sorting part of this workshop
+vector -> vector is the array that the size can be change and is use in this workshop to combine one output to another output
+list -> list is use to return the out of stock items
+
+
+Using the algorithm function makes my code looks cleaner and easier to read, but the down side of it is that, the function of the algorithm
+is quit a limit to what I want to use. So in this workshop, I use both algorithm function and the function that I create on my own.
+
+I don't think anything would be different if I change from vector to list. This two library is a little bit similar and would be easy  to implement,
+or not changing much of code if vector was to change to list.

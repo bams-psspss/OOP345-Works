@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
   bakery.showGoods(std::cout);
   ::printstars(std::cout, 64);
 
+
   // sort breads by desc, pastries by shelflife
   bakery.sortBakery("Description");
   ::printheader("Bakery sorted by desc", std::cout);

@@ -1,3 +1,13 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		13 July 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code
+that my professor provided to complete my workshops and assignments.
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -107,23 +117,7 @@ namespace seneca {
 		std::sort(bakedGood.begin(), bakedGood.end(), func);
 
 	}
-	/*
-	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
-	{
-		std::vector<BakedGood> ret(bakedGood.size() + theOther.bakedGood.size());
-		sortBakery("Price");
-		Bakery copy = theOther;
-		copy.sortBakery("Price");
-		std::merge(bakedGood.begin(), bakedGood.end(),
-			theOther.bakedGood.begin(), theOther.bakedGood.end(),
-			ret.begin(),
-			[](const BakedGood& a, const BakedGood& b) {
-				return a.price < b.price;
-			});
 
-		return ret;
-	}
-	*/
 	std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
 	{
 		std::vector<BakedGood> ret(bakedGood.size() + theOther.bakedGood.size());
@@ -139,58 +133,6 @@ namespace seneca {
 
 		return ret;
 	}
-
-	//Note Done
-	/*void Bakery::sortBakery(std::string theField)
-	{
-		if (theField == "Description") {
-			std::sort(bakedGood.begin(), bakedGood.end(), 
-				[](const BakedGood& a, const BakedGood& b) {
-				return a.desc < b.desc;
-				});
-
-		}
-
-		//It is sorted as the shelflife but the order is not the same as sample output.txt
-		//Worked, bbecause of the ide
-		else if (theField == "Shelf") {
-			std::sort(bakedGood.begin(), bakedGood.end(),
-				[](const BakedGood& a, const BakedGood& b) {
-					return a.shelfLife < b.shelfLife;
-			});
-		}
-		else  if (theField == "Stock") {
-			std::sort(bakedGood.begin(), bakedGood.end(),
-				[](const BakedGood& a, const BakedGood& b) {
-					return a.stock < b.stock;
-				});
-				}
-		else if(theField == "Price") {
-			std::sort(bakedGood.begin(), bakedGood.end(),
-				[](const BakedGood& a, const BakedGood& b) {
-					return a.price < b.price;
-				});
-		}
-		else {
-			//Nothing Happen!
-		}
-	}*/
-
-
-
-
-	/**std::vector<BakedGood> Bakery::combine(const Bakery& theOther)
-	{
-		std::vector<BakedGood> combined = bakedGood;
-		combined.insert(combined.end(), theOther.bakedGood.begin(), theOther.bakedGood.end());
-
-		std::sort(combined.begin(), combined.end(),
-			[](const BakedGood& a, const BakedGood& b) {
-				return a.price < b.price;
-			});
-		return combined;
-	}*/
-
 
 
 
@@ -222,7 +164,6 @@ namespace seneca {
 
 }
 
-//Edit the format!!!!
 std::ostream& operator<<(std::ostream& out, const seneca::BakedGood& b) {
 	out << "* " << std::left << std::setw(10)
 		<< (b.type == seneca::BakedType::BREAD ? "Bread" : "Pastry")
