@@ -81,28 +81,6 @@ namespace seneca {
 		os << "Total Price: " << price << '\n';
 	}
 
-	/*void Bakery::sortBakery(std::string theField)
-	{
-		auto func = [theField](const BakedGood& a, const BakedGood& b) {
-			bool ret{ false };
-			if (theField == "Description") {
-				ret = a.desc < b.desc;
-			}
-			else if (theField == "Shelf") {
-				ret = a.shelfLife < b.shelfLife;
-			}
-			else if (theField == "Stock") {
-				ret = a.stock < b.stock;
-			}
-			else if (theField == "Price") {
-				ret = a.price < b.price;
-			}
-			return ret;
-		};
-
-		std::sort(bakedGood.begin(), bakedGood.end(), func);
-	}*/
-
 	//Note Done
 	void Bakery::sortBakery(std::string theField)
 	{
@@ -115,6 +93,7 @@ namespace seneca {
 		}
 
 		//It is sorted as the shelflife but the order is not the same as sample output.txt
+		//Worked, bbecause of the ide
 		else if (theField == "Shelf") {
 			std::sort(bakedGood.begin(), bakedGood.end(),
 				[](const BakedGood& a, const BakedGood& b) {
@@ -181,11 +160,12 @@ namespace seneca {
 
 //Edit the format!!!!
 std::ostream& operator<<(std::ostream& out, const seneca::BakedGood& b) {
-	out << "* " << std::left << std::setw(10) << (b.type == seneca::BakedType::BREAD ? "Bread" : "Pastry");
-	out << " * " << std::left << std::setw(20) << b.desc;
-	out << " * " << b.shelfLife << std::right << std::setw(5);
-	out << " * " << b.stock << std::right << std::setw(5) ;
-	out << " * " << std::fixed << std::setprecision(2) << std::setw(8) << b.price;
-	out << " *";
+	out << "* " << std::left << std::setw(10)
+		<< (b.type == seneca::BakedType::BREAD ? "Bread" : "Pastry")
+		<< " * " << std::left << std::setw(20) << b.desc
+		<< " * " << std::left << std::setw(5) << b.shelfLife
+		<< " * " << std::left << std::setw(5) << b.stock
+		<< " * " << std::fixed << std::setprecision(2) << std::right << std::setw(8) << b.price
+		<< " *";
 	return out;
 }
