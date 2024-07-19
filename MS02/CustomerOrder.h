@@ -15,10 +15,10 @@ namespace seneca {
 	};
 	class CustomerOrder {
 
-		std::string m_name;
-		std::string m_product;
-		size_t m_cntItem;
-		Item** m_lstItem;
+		std::string m_name{};
+		std::string m_product{};
+		size_t m_cntItem{0};
+		Item** m_lstItem{};
 
 		//Display Purpose
 		static size_t m_widthField;

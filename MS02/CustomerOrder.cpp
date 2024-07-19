@@ -83,8 +83,9 @@ namespace seneca {
 			m_lstItem = other.m_lstItem;
 
 			//Delete the old one
-			other.m_lstItem = nullptr;
-			other.m_cntItem = 0;
+			//BC --> 1
+			delete[] other.m_lstItem;
+	
 		}
 
 		return *this;
