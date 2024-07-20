@@ -13,19 +13,21 @@ namespace seneca {
 
 		Item(const std::string& src) : m_itemName(src) {};
 	};
-	class CustomerOrder {
 
+	class CustomerOrder {
+		
 		std::string m_name{};
 		std::string m_product{};
-		size_t m_cntItem{0};
+		size_t m_cntItem{};
 		Item** m_lstItem{};
 
 		//Display Purpose
 		static size_t m_widthField;
 
 	public:
+
 		CustomerOrder();
-		//Not Done
+		//Try I guess
 		CustomerOrder(const std::string& theStr);
 
 		//Copy Constructor ?? If called throw exception error???
