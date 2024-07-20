@@ -1,6 +1,15 @@
+// Name: Pattarawan Saravaneeyawong
+// Seneca Student ID: 130618234
+// Seneca email: psaravaneeyawong@myseneca.ca
+// Date of completion: 20 Juy 2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
 #include <iostream>
 #include <string>
 #include <iomanip>
+
 #include "CustomerOrder.h"
 #include "Utilities.h"
 
@@ -12,39 +21,6 @@ namespace seneca {
 	{
 	}
 
-	/*CustomerOrder::CustomerOrder(const std::string& theStr) {
-		Utilities u;
-		size_t pos = 0;
-		size_t tempPos = 0;
-		size_t count = 0;
-		bool more = true;
-
-		m_name = u.extractToken(theStr, pos, more);
-		m_product = u.extractToken(theStr, pos, more);
-
-		tempPos = pos;
-
-		while (more) {
-			u.extractToken(theStr, tempPos, more);
-			count++;
-		}
-
-		m_cntItem = count;
-
-		delete[] m_lstItem;
-		m_lstItem = new Item * [m_cntItem];
-
-		for (size_t i = 0; i < m_cntItem && more; i++) {
-			m_lstItem[i]->m_itemName = u.extractToken(theStr, pos, more);
-		}
-
-		//??????
-		CustomerOrder::m_widthField = std::max(u.getFieldWidth(), CustomerOrder::m_widthField);
-
-
-
-	}*/
-
 	CustomerOrder::CustomerOrder(const std::string& theStr) {
 		Utilities u;
 		size_t pos = 0;
@@ -52,13 +28,14 @@ namespace seneca {
 		size_t count = 0;
 		bool more = true;
 
+		//Get the first 2 token
 		m_name = u.extractToken(theStr, pos, more);
 		m_product = u.extractToken(theStr, pos, more);
 
-		// Save the current position to count the items
+		//POS Savepoint
 		tempPos = pos;
 
-		// Count the number of items
+		//Use tempPos, to literally count how many things are there
 		while (more) {
 			u.extractToken(theStr, tempPos, more);
 			count++;
@@ -66,25 +43,29 @@ namespace seneca {
 
 		m_cntItem = count;
 
-		// Allocate memory for the list of items
+		//Allocate Item POINTERS
 		m_lstItem = new Item * [m_cntItem];
 
-		// Reset 'more' to true for the next extraction loop
+		//MORE TO TRUE AGAIN
 		more = true;
 
 		// Extract item names and initialize Item objects
 		for (size_t i = 0; i < m_cntItem && more; ++i) {
+			//POS -> continue where we left after extracting m_product
 			std::string itemName = u.extractToken(theStr, pos, more);
+			//Initialize the Item, with 1 agrument (THE NAME)
 			m_lstItem[i] = new Item(itemName);
 		}
 
-		// Update m_widthField if necessary
-		CustomerOrder::m_widthField = std::max(u.getFieldWidth(), CustomerOrder::m_widthField);
+		if (u.getFieldWidth() > CustomerOrder::m_widthField) {
+			CustomerOrder::m_widthField = u.getFieldWidth();
+		}
 	}
 
 
 	CustomerOrder::CustomerOrder(const CustomerOrder& other)
 	{
+		//THROW!!!! IT IS NOT ALLOW!!!!!!!
 		throw std::runtime_error("CANNOT USE COPY!");
 	}
 
@@ -102,56 +83,22 @@ namespace seneca {
 		*this = std::move(other);
 	}
 
-	/*CustomerOrder& CustomerOrder::operator=(CustomerOrder&& other) noexcept
-	{
-		//Check for self assignment
-		if (this != &other) {
-			//Free Resources
-			delete[] m_lstItem;
-
-			//Shallow Copy
-			m_name = other.m_name;
-			m_product = other.m_product;
-			m_cntItem = other.m_cntItem;
-
-			//Move the Resouce
-			m_lstItem = new Item * [m_cntItem];
-
-			for (size_t i = 0; i < m_cntItem; i++) {
-				m_lstItem[i] = other.m_lstItem[i];
-			}
-
-			//Delete the old one
-			for (size_t i = 0; i < other.m_cntItem; ++i) {
-				delete other.m_lstItem[i];
-			}
-			delete[] other.m_lstItem;
-			other.m_lstItem = nullptr;
-			other.m_cntItem = 0;
-			other.m_name = {};
-			other.m_product = {};
-
-		}
-
-		return *this;
-	}*/
-
 	CustomerOrder& CustomerOrder::operator=(CustomerOrder&& other) noexcept {
-		// Check for self-assignment
+		// Check for SELF-ASSIGNMENT
 		if (this != &other) {
-			// Free the existing resources of this object
+			//FREE THE RESOURCES
 			for (size_t i = 0; i < m_cntItem; ++i) {
 				delete m_lstItem[i];
 			}
 			delete[] m_lstItem;
 
-			// Transfer ownership of the resources from other to this
+			//MORE EFFICIENT TO USE MOVE
 			m_name = std::move(other.m_name);
 			m_product = std::move(other.m_product);
 			m_cntItem = other.m_cntItem;
 			m_lstItem = other.m_lstItem;
 
-			// Nullify the resources of other
+			//FREE THE 'OTHER'
 			other.m_lstItem = nullptr;
 			other.m_cntItem = 0;
 		}
@@ -179,27 +126,6 @@ namespace seneca {
 		return filled;
 
 	}
-
-	/*bool CustomerOrder::isItemFilled(const std::string& itemName) const
-	{
-		bool exist = false;
-		bool filled = false;
-
-		for (size_t i = 0; i < m_cntItem; i++) {
-			if (m_lstItem[i]->m_itemName == itemName) {
-				exist = true;
-				if (m_lstItem[i]->m_isFilled && exist) {
-					filled = true;
-				}
-			}
-
-			if (m_lstItem[i]->m_itemName != itemName) {
-				exist = true;
-			}
-		}
-		return exist && filled;
-		
-	}*/
 
 	bool CustomerOrder::isItemFilled(const std::string& itemName) const
 	{
