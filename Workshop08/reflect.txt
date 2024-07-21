@@ -1,0 +1,23 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		21 June 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code 
+that my professor provided to complete my workshops and assignments. 
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+I use shared_ptr because when we use unique one, it can't be use across the function. By using shared_ptr you an use the 
+object oriented things like polymorphism to help enhance the code. And because we use singleton pattern, pattern which only need to be
+single instance and must be accessed to the whole program, if we use the unique, I would not be able to share the instance across the program, I mean it can
+but it would be difficult and complicated.
+
+From the part 1 of the workshop, I put all the body function in the .cpp file, because there were no template,
+but when it comes to part 2, I ship all the body function into .h file, because it is template and must be in .h file.
+
+Another way to create a singleton is using the local static variable. This variable lifetime is from the begin of the program to the end of the program.
+So if we use this instead of static member, I think it will work.
+
+It is not a bug, because it is a smart pointer, it have its own way to manage the resources. 

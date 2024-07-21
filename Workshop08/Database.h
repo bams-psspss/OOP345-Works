@@ -33,16 +33,22 @@ namespace seneca {
     {
     private:
         static std::shared_ptr<Database<T>> m_instance;
+
         size_t m_size = 0;
+
         std::string m_keys[20];
+
         T m_values[20];
+
         std::string m_file;
 
         Database(const std::string& filename);
+
         void encryptDecrypt(T& value);
 
     public:
         Database() = delete;
+
         static std::shared_ptr<Database<T>> getInstance(const std::string& filename);
 
         Err_Status GetValue(const std::string& key, T& value);
@@ -95,7 +101,7 @@ namespace seneca {
     template <typename T>
     void Database<T>::encryptDecrypt(T& value)
     {
-        // Default implementation does nothing
+        //LITERALLY DOING NOTHING
     }
 
     template <>
