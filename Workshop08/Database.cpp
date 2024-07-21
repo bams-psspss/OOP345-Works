@@ -28,10 +28,13 @@ namespace seneca {
 		}
 		while (std::getline(theFile, theLine) && m_numEntries < 20) {
 			// Find the first space in the line to split key and value
-			size_t spacePos = theLine.find(' ');
+			size_t spacePos = theLine.find_first_of(' ');
 			if (spacePos != std::string::npos) {
 				std::string tempKey = theLine.substr(0, spacePos);
+				tempKey = trim(tempKey);
+
 				std::string tempVal = theLine.substr(spacePos + 1);
+				tempVal = trim(tempVal);
 
 				// Replace underscores in the key with spaces
 				std::replace(tempKey.begin(), tempKey.end(), '_', ' ');
@@ -41,7 +44,7 @@ namespace seneca {
 				m_values[m_numEntries] = tempVal;
 
 				// Increment the number of entries
-				++m_numEntries;
+				m_numEntries++;
 
 	
 			}
@@ -72,7 +75,7 @@ namespace seneca {
 	{
 		size_t theInd = 0;
 		if (m_numEntries < 20) {
-			for (auto i = 0; i < m_numEntries && !(theInd); i++) {
+			for (size_t i = 0; i < m_numEntries && !(theInd); i++) {
 				if (m_keys[i].empty() && m_values[i].empty()) {
 					theInd = i;
 				}
@@ -86,24 +89,31 @@ namespace seneca {
 
 		return Err_Status::Err_OutOfMemory;
 	}
+	std::string Database::trim(std::string theStr)
+	{
+		//Return npos if first position is NOT spacebar
+		size_t first = theStr.find_first_not_of(' ');
 
+		size_t last = theStr.find_last_not_of(' ');
+
+		if (first == std::string::npos) {
+			return theStr; //First char is not space return the aggrument
+		}
+
+		return theStr.substr(first, (last - first + 1));
+	}
 	Database::~Database()
 	{
-		std::cout << "[" << this << "] ~Database()";
-		std::string backupFileName = m_fileName + ".bkp.txt";
-		std::ofstream backupFile(backupFileName);
+		std::cout << "[" << m_instance << "] ~Database()";
 
-		if (!backupFile.is_open()) {
-			throw std::runtime_error("Unable to open backup file for writing.");
+
+		std::ofstream file(m_fileName + ".bkp.txt");
+		for (size_t i = 0; i < m_numEntries; i++)
+		{
+			file << std::setw(25) << std::left << m_keys[i] 
+				<< "-> " << m_values[i] << std::endl;
 		}
 
-		for (size_t i = 0; i < m_numEntries; ++i) {
-			backupFile << std::left << std::setw(25) << m_keys[i] << " -> " << m_values[i] << '\n';
-		}
-
-		backupFile.close();
 	}
-
-
-
 }
+

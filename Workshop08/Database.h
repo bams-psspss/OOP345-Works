@@ -43,10 +43,15 @@ namespace seneca {
 		//Doubt
 		Err_Status SetValue(const std::string& key, const std::string& value);
 
+		//Trim the whitespaces
+		std::string trim(std::string theString);
+
 		//This too
 		~Database();
 
 	};
+
+	
 }
 
 
