@@ -1,0 +1,23 @@
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		27 July 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
+
+I declare that this submission is the result of my own work and I only copied the code 
+that my professor provided to complete my workshops and assignments. 
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
+
+
+Benefits of using the binary file is that, when you extract information from the file, you get the most accurate
+data. They don't translate or converse anything from the file, but you get raw data, but the down part of storing 
+raw data is that, you really need to be precise about storing them. In addition, it is more faster to read from 
+binary file than the normal file, because it does not require to converse data like I mention above.
+
+Using std::bind() is mainly to avoid repeated argument, which sometimes we can make mistake if we repeat
+the code many times, and it is not good practice because of its readability. But the main reason of it is that
+it simplified the thread functions.
+
+Advantage of using multiple threads is that it increase the efficiency, responsiveness, and reduce execution time. By
+using multiple thread, the program can execute many function at the same time, which reduce time in execution

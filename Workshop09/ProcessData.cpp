@@ -1,5 +1,14 @@
 // Workshop 9 - Multi-Threading, Thread Class
+/***********************************************************************
+Name:		Pattarawan Saravaneeyawong
+Date:		27 July 2024
+StudentID:	130618234
+Email:		psaravaneeyawong@myseneca.ca
 
+I declare that this submission is the result of my own work and I only copied the code
+that my professor provided to complete my workshops and assignments.
+This submitted piece of work has not been shared with any other student or 3rd party content provider.
+***********************************************************************/
 #include <iostream>
 #include <fstream>
 #include <functional>
@@ -21,7 +30,7 @@ namespace seneca
 		for (int i = 0; i < size; i++)
 		{
 			//Add this!
-			std::this_thread::sleep_for(std::chrono::nanoseconds(1));
+			std::this_thread::sleep_for(std::chrono::nanoseconds(10));
 			avg += arr[i];
 		}
 		avg /= divisor;
@@ -137,10 +146,15 @@ namespace seneca
 
 			// Close the file
 			outFile.close();
+
+			//Return 0 if success
 			return 0;
 		}
 		else {
 			std::cerr << "Error opening file: " << targetFile << std::endl;
+
+			//Retuen -1 if error, I mean it is not necessary to return anything, but
+			//the given function said to return int so yeah IT IS WHAT IT IS!
 			return -1;
 		}
 	}
