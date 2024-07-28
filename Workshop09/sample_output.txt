@@ -6,7 +6,7 @@ Command Line:
 --------------------------
 
 ==========================================================================================
-                           Average and variance of record-values
+                   Average and variance of record-values using 1 thread
 ------------------------------------------------------------------------------------------
 Item's count in file 'data_int.bin': 500000
   [2861, 2446, 3099, ... , 5531, 2901, 1091]
@@ -14,5 +14,29 @@ Read [2000005] bytes from the files; the content is the same.
 Data statistics ("data_int.bin"):
  Average:       4915.392782
  Variance:   5515121.375856
-Time required to compute average and variance: 118 milliseconds.
+Time required to compute average and variance: 173 milliseconds.
+==========================================================================================
+
+
+==========================================================================================
+                   Average and variance of record-values using 2 threads
+------------------------------------------------------------------------------------------
+Item's count in file 'data_int.bin': 500000
+  [2861, 2446, 3099, ... , 5531, 2901, 1091]
+Data statistics ("data_int.bin"):
+ Average:       4915.392782
+ Variance:   5515121.375856
+Time required to compute average and variance: 60 milliseconds.
+==========================================================================================
+
+
+==========================================================================================
+                   Average and variance of record-values using 4 threads
+------------------------------------------------------------------------------------------
+Item's count in file 'data_int.bin': 500000
+  [2861, 2446, 3099, ... , 5531, 2901, 1091]
+Data statistics ("data_int.bin"):
+ Average:       4915.392782
+ Variance:   5515121.375856
+Time required to compute average and variance: 56 milliseconds.
 ==========================================================================================

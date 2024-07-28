@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ProcessData.cpp" />
-    <ClCompile Include="w9_p1.cpp" />
+    <ClCompile Include="w9_p2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProcessData.h" />
