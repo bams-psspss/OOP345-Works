@@ -1,0 +1,7 @@
+﻿  LineManager.cpp
+  Workstation.cpp
+  ms3.cpp
+C:\Users\bampattarawan\Desktop\MS03\Workstation.cpp(13,16): error C2600: 'seneca::Workstation::~Workstation': cannot define a compiler-generated special member function (must be declared in the class first)
+C:\Users\bampattarawan\Desktop\MS03\Workstation.cpp(62,9): error C2065: 'endl': undeclared identifier
+C:\Users\bampattarawan\Desktop\MS03\Workstation.cpp(67,22): error C3861: 'move': identifier not found
+  Generating Code...
