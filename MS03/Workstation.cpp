@@ -10,10 +10,6 @@ namespace seneca {
 
     Workstation::Workstation(const std::string& str) :Station(str) {}
 
-    Workstation::~Workstation(){
-     delete m_pNextStation;
-    }
-
     void Workstation::fill(std::ostream& os) {
         //checks if there are any orders in the current workstation.
         if (!m_orders.empty()) {
