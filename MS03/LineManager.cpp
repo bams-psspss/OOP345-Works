@@ -75,21 +75,29 @@ namespace seneca {
         static size_t cnt = 0; // track the number of iterations 
         cnt++;
         os << "Line Manager Iteration: " << cnt << std::endl;
-        // checks if there are pending orders to be processed
-        if (g_pending.size()) {
+
+        // Check if there are pending orders to be processed
+        if (!g_pending.empty()) {
             *m_firstStation += std::move(g_pending.front());
             g_pending.pop_front();
         }
-        //uses a for loop to iterate through each workstation --> calls the fill
+
+        // Process each workstation
         for (Workstation* temp : m_activeLine) {
             temp->fill(os);
         }
-        //uses another for loop to iterate through each workstation --> move order
+
+        // Move orders to the next workstation
         for (Workstation* temp : m_activeLine) {
             temp->attemptToMoveOrder();
         }
-        return m_cntCustomerOrder == g_completed.size() + g_incomplete.size();
+
+        // Return true if there are no pending orders and all customer orders are processed
+        return g_pending.empty() && std::all_of(g_completed.begin(), g_completed.end(), [](const CustomerOrder& order) {
+            return order.isOrderFilled();
+            });
     }
+
 
     void LineManager::display(std::ostream& os) const {
         for_each(m_activeLine.begin(), m_activeLine.end(), [&](const Workstation* workStation) {
