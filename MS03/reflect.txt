@@ -1,0 +1,11 @@
+// Name: Pattarawan Saravaneeyawong
+// Seneca Student ID: 130618234
+// Seneca email: psaravaneeyawong@myseneca.ca
+// Date of completion: 04 August 2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+This milestone is quite hard for me, because I thought I did well in MS02 and need no change for customer oder, but then I realize
+the problem is not in the Linemanager or Workstation, it is in the CustomerOrder, which I did need to revuse the customerorder again,
+which lead to the late submit.
