@@ -36,7 +36,6 @@ namespace seneca {
 		Workstation(Workstation&& other) noexcept = delete;
 		Workstation& operator=(Workstation& other) noexcept = delete;
 
-		~Workstation();
 
 		//Check if there is a CustomerOrder then fillIt
 		void fill(std::ostream& os);
